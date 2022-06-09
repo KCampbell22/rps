@@ -36,7 +36,7 @@ computerChoice = GetComputerChoice;
 
  function ChoseGameMode (computerChoice) {
      let modeDisplay = document.querySelector('#mode-wrap'); // game mode display
-    const computerChoice = GetComputerChoice();
+    computerChoice = GetComputerChoice();
     console.log(computerChoice);
 
     if(computerChoice === 'rock') {
