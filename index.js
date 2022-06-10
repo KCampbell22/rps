@@ -1,14 +1,15 @@
 let round = 1;
 let playerScore = 0;
 let computerScore = 0;
-let computerChoice
 let winner = '';
-let scoreLimit;
+
  // rock button
  // paper button
  // scissors button
 
-let roundDisplay = document.querySelector('#round-display'); // round display
+ const modeWrap = document.querySelector('#mode-wrap');
+
+let roundDisplay = document.querySelector('#round-number'); // round display
 let playerScoreDisplay = document.querySelector('#player-score'); // player score display
 let computerScoreDisplay = document.querySelector('#computer-score'); // computer score display
 let winnerDisplay = document.querySelector('#winner-display'); // winner display
@@ -29,9 +30,39 @@ const uRockIcon = document.querySelector('#uRock'); // user rock icon
  const cPaperIcon = document.querySelector('#cPaper'); // computer paper icon
  const cScissorsIcon = document.querySelector('#cScissors'); // computer scissors icon
 
-console.log(scoreLimit)
-
+ 
 //window.requestAnimationFrame
 
+function ChooseMode(){
+// will determine the game mode. 
+     if (playSoloBtn){
+         scoreLimit = 1; // sets mode to solo mode
+         showMode.textContent = 'Mode: solo';
+         modeWrap.remove();
+     }
 
- 
+     else if (playBestOfThreeBtn){
+        scoreLimit = 2;
+        showMode.textContent = 'Mode: Best out of Three';
+        modeWrap.remove();
+     }
+    
+    }
+    
+
+    function GetComputerChoice(){
+        let random = Math.floor(Math.random() * 3) + 1;
+        switch (random) {
+            case 1: 
+               return 'rock';
+            case 2:
+                return 'paper';
+            case 3:
+                return 'scissors';
+        }
+    }
+
+    
+function PlayGame(playerChoice, computerChoice) {
+    
+}
