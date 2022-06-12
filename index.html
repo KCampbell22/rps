@@ -1,75 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="normalize.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div id="mode-wrap">
-      <div class="game-option">
-        <h2>Solo</h2>
-        <button id="solo-btn">Play</button>
-      </div>
-      <div class="game-option">
-        <h2>Best out of 3</h2>
-        <button id="best-btn">Play</button>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <title>Document</title>
+</head>
+<body>
+  <div data-select-overlay class="overlay">
+    <h2 style="color: white;">Wins</h2>
+    <button data-restart class="restart">Play Again?</button>
+  </div>
+  <div><span>Select Game Mode</span>
+    <div class="btn-wrap">
+      <button class="b-of-3" data-change-best-of-three></button>
+      <button class="solo" data-change-solo></button>
     </div>
-    </div>
-    <img src="/noun-fist-477918.svg" alt="" class="optionDisplay" id="uRock" />
-    <img src="/noun-wave-477912.svg" alt="" class="optionDisplay" id="uPaper" />
-    <img
-      src="/noun-scissors-477919.svg"
-      alt=""
-      class="optionDisplay"
-      id="uScissors"
-    />
-    <img src="/noun-fist-477918.svg" alt="" class="cOptionDisplay" id="cRock" />
-    <img
-      src="/noun-wave-477912.svg"
-      alt=""
-      class="cOptionDisplay"
-      id="cPaper"
-    />
-    <img
-      src="/noun-scissors-477919.svg"
-      alt=""
-      class="cOptionDisplay"
-      id="cScissors"
-    />
-    <div class="wrapper">
-      <p>Choose your weapon:</p>
-      <input type="button" id="rock" value="rock" ></input>
-      <input type="button" id="paper" value="paper"></input>
-      <input type="button" id="scissors" value="scissors"></input>
-    </div>
-    <div class="scoreboard">
-      <p id="mode-display">Mode: </p>
-      <p id="round-number" class=""></p>
-      <p id="player-score"></p>
-      <p id="computer-score"></p>
-    </div>
-    <div class="overlay"></div>
+  </div>
+  <div class="selections">
+    <button class="selection" data-selection="rock">
+      <img src="/noun-fist-477918.png" style="width: 100%; height: auto;" alt="">
+    </button>
+    <button class="selection" data-selection="paper">
+      <img src="/noun-hand-477922.png" style="width: 100%; height: auto;" alt="">
+    </button>
+    <button class="selection" data-selection="scissors">
+      <img src="/noun-scissors-477919.png" style="width: 100%; height: auto;" alt="">
+    </button>
 
-    <div class="pop-wrap">
-      <div id="pop-up">
-        <p id="winner-display">Blank wins</p>
-        <div class="popup-button-wrap">
-          <button id="main-menu">Main Menu</button>
-          <button id="restart">Restart</button>
-        </div>
-      </div>
+  </div>
+  <div class="mode-display" data-mode-display="">Mode: </div>
+  <div class='round-display'data-select-round>Round: </div>
+    <div class="results">
+    <div>
+      You:
+      <span class="result-score" data-player-score>0</span>
     </div>
+    <div data-final-column >
+      Computer:
+      <span class="result-score" data-computer-score>0</span>
+    </div>
+    <!-- <div class="result-selection">
+      <img class= "winner" src="/noun-fist-477918.png" alt="">
+    </div>
+    <div class="result-selection">
+      <img class="computerLost" src="/noun-scissors-477919.png" alt="">
+    </div> -->
 
-    <img
-      id="battle-stands"
-      src="/vs-versus-battle-glowing-podiums-for-fighters-vector-29107641-removebg-preview.png"
-      alt=""
-    />
-    <script src="index.js"></script>
-  </body>
+  </div>
+  
+</body>
 </html>
