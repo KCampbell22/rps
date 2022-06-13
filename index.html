@@ -14,12 +14,33 @@
     <h2 style="color: white;">Wins</h2>
     <button data-restart class="restart">Play Again?</button>
   </div>
-  <div><span>Select Game Mode</span>
-    <div class="btn-wrap">
-      <button class="b-of-3" data-change-best-of-three></button>
-      <button class="solo" data-change-solo></button>
+
+  
+    
+  <span class="select-text">Select Game Mode</span>
+    <div class="game-mode-wrap">
+      <div id="text-wrap">
+        <p class="solo-text">Solo</p>
+        <p class="best-of-3-text">Best out of Three</p>
+       </div>
+        <div class="btn-wrap">
+          <div class="light-gray">
+            <div class="b-of-3" data-change-best-of-three>
+              <div class="blackline"></div>
+              <div class="blackline"></div>
+              <div class="blackline"></div>
+            </div>
+            <div class="solo" data-change-solo>
+              <div class="blackline"></div>
+              <div class="blackline"></div>
+              <div class="blackline"></div>
+            </div>
+          </div>
+        </div>
     </div>
-  </div>
+
+
+  
   <div class="selections">
     <button class="selection" data-selection="rock">
       <img src="/noun-fist-477918.png" style="width: 100%; height: auto;" alt="">
@@ -32,7 +53,7 @@
     </button>
 
   </div>
-  <div class="mode-display" data-mode-display="">Mode: </div>
+  <div class="mode-display" data-mode-display="">Mode: Solo </div>
   <div class='round-display'data-select-round>Round: </div>
     <div class="results">
     <div>

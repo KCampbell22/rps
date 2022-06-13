@@ -1,4 +1,3 @@
-
 const selectionButtons = document.querySelectorAll('[data-selection]')
 const finalColumn = document.querySelector('[data-final-column]')
 const playerScore = document.querySelector('[data-player-score]')
@@ -46,14 +45,9 @@ const SELECTIONS = [{
   } )
   
   solo.addEventListener('click', e =>{
-    solo.disabled  = true;
-    solo.style.border = 'none'
+    window.location.reload()
+    solo.disabled = true;
     solo.style.visibility = 'hidden'
-    bOfThree.style.visibility = 'visible'
-    bOfThree.disabled = false;
-    modeDisplay.textContent = 'Mode: Solo'
-    scoreLimit = '1';
-    return scoreLimit;
   })
   
 
@@ -112,7 +106,50 @@ function randomSelection() {
 
 
 function gameOver(computerScore, playerScore, scoreLimit) {
-  if(playerScore.innerHTML === '1' || computerScore.innerHTML === scoreLimit) {
+  if(playerScore.innerHTML === scoreLimit || computerScore.innerHTML === scoreLimit) {
+    overlay.style.display = 'flex' 
+  }
+  restartBtn.addEventListener('click', e => {
+    overlay.style.display = 'none'
+    playerScore.innerHTML = '0'
+    computerScore.innerHTML = '0'
+    window.location.reload()
+  })
+}
+
+
+
+
+
+
+function increaseScore(score) {
+  score.innerHTML = parseInt(score.innerHTML) + 1
+}
+
+function addSelectionReult(selection, winner, computerSelection){
+  const div = document.createElement('div')
+  const createDisplay = document.createElement('img')
+  createDisplay.src = selection.icon
+  div.classList.add('result-selection') 
+  if(winner) {createDisplay.classList.add('winner')}
+  else{createDisplay.classList.add('loser')}
+  
+  finalColumn.after(div)
+  div.appendChild(createDisplay);
+}
+
+function isWinner(selection, opponentSelection) {
+  return selection.beats === opponentSelection.name
+}
+
+function randomSelection() {
+  const random = Math.floor(Math.random() * SELECTIONS.length) 
+  return SELECTIONS[random]
+}
+
+
+function gameOver(computerScore, playerScore, scoreLimit) {
+  if(playerScore.innerHTML === scoreLimit || computerScore.innerHTML === scoreLimit) {
     overlay.style.display = 'flex' 
   }
   restartBtn.addEventListener('click', e => {
